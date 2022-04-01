@@ -1,0 +1,51 @@
+use sakila;
+select*from film;
+select*from actor;
+select*from film_actor;
+
+use sakila;
+-- descobrir todos atores que fizeram o filme com film_id= 1 com tile= ACADEMY DINOSAUR
+select first_name, last_name from actor where actor_id in (select actor_id from film_actor where film_id='1');
+-- A) descobrir quais filmes actor Penelope Guiness fez
+select title from film where film_id in (select film_id from film_actor where actor_id = '1');
+-- A) mas com rating='PG'
+select title from film where film_id in (select film_id from film_actor where actor_id = '1' and rating = 'PG');
+--
+use sakila;
+select actor_id from film_actor where film_id=1 order by actor_id desc;
+select first_name, last_name from actor where actor_id in (select actor_id from film_actor where film_id = 1 order by actor_id desc);
+select a.first_name, a.last_name from actor as a; -- join film_actor as b on a.actor_id = b.actor_id;
+select b.actor_id from film_actor as b;
+
+-- select a.first_name, a.last_name from actor as a inner join film_actor as b on a.actor_id = b.actor_id; 
+select a.actor_id, b.actor_id from actor as a inner join film_actor as b on a.actor_id = b.actor_id; 
+---
+use sakila;
+select*from country;
+select*from city;
+-- descobrir quantas cidades tem cada pais
+select a.country_id, a.country, (select count(city) from city b where a.country_id=b.country_id) as qnt_city from country a; 
+ -- Calcula total populacao do pais pela tabela cidade e trazer o nome do pais e filtra por linguas
+ use world;
+ select * from city;
+ select * from country;
+ select * from countrylanguage;
+ select a.CountryCode, (select b.population from country b where a.CountryCode=b.Code) from city a ;
+ select CountryCode from city union select Code from country;
+ 
+  select a.countrycode,sum(a.population)as total_pop,
+ (select name from country b where a.countrycode=b.code) as pais
+ from city a
+ where a.countrycode in (select c.countrycode from countrylanguage c
+   where language='Spanish')
+ group by a.countrycode;
+ 
+
+
+use senso;
+create table testecarga (id varchar(5));
+alter table testecarga add column id3 integer primary key auto_increment;
+alter table testecarga drop column id;
+insert into testecarga  (id) select actor_id from film_actor where film_id='1';
+select*from testecarga;
+delete from testecarga where id<11;
