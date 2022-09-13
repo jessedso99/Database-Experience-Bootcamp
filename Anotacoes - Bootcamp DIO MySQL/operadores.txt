@@ -1,0 +1,15 @@
+distinct - mostra apenas uma ocorrencia de cada valor da coluna
+	SELECT DISTINCT salary FROM employee;
+
+====== OPERADORES ======
+operadores logicos = (=, <, <=, >, >=, <>)
+operadores matematicos = (+, -, *, /)
+operadores booleanos = (AND, OR, XOR, NOT)
+	AND - todos tem q ser igual
+	OR - ou um ou outro
+	XOR - ou exclusivo, pesquisar.
+	NOT - nega. Ex: not in (1,2,4) = 0, 3, 5, ... 
+operadores logicos = (TRUE, FALSE)
+
+==================================
+INSERT INTO table (colunas q vao receber valores) VALUES (valores em ordem respectiva a ordem de colunas dada);

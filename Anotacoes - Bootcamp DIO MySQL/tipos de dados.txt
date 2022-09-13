@@ -1,0 +1,31 @@
+char - tamanho fixo (ate 255 bytes)
+varchar variavel (65535 bytes)
+
+text types - usados em emails, xml, documentos
+mediumtext 16KK bytes ~ caracteres
+longtext 4KKK characteres
+
+outros texts
+tinytext 255 bytes
+text 65k bytes
+
+SHOW CHARACTER SET
+
+====== dados numericos ========
+INTEIROS
+tinyint -128 a 127
+smallint -32k a 32k
+mediumint -8kk a 8kk
+int -2kkk a 2kkk
+bigint 9kkkkk a 9kkkkk
+
+FLUTUANTE
+float
+double
+
+============ dados temporais ===========
+date yyyy-mm-dd
+datetime yyyy-mm-dd hh:mm:ss
+timestamp yyyy-mm-dd hh-mm-ss
+year yyyy
+time hhh:mm:ss

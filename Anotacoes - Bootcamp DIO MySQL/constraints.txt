@@ -1,0 +1,10 @@
+NOT NULL impedir q valors nulos vazios sejam inseridos nessa coluna
+PK e FK primary key e foreign key
+	PK = Pode ser do tipo INT, BIGINT, SMALLINT, UNSIGNED.
+	Interessante colocar AUTO INCREMENT
+DEFAULT (valor) um atributo n especificado pode receber um valor padrao (DEFAULT)
+CHEACK (domain) veriicar se o valor inserido conrresponde com os valorees dentro do dominio
+	CHECK (num>0 AND num < 21)
+DELETE remover um valor/registro da tablela. Se vc tiver uma constrain (relaçã de dependencia) pode haver remoção em cascata. porem o sql tem triggers para rejeitr esse tipo de acao
+UNIQUE determina que o valor deve ser unico dentro da tabela
+	name VARCHAR(15) UNIQUE;
